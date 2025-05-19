@@ -68,5 +68,18 @@
             endif;
             ?>
         </div>
+
+        <div class="trashify-pagination">
+            <button class="button" id="trashify-prev-page" disabled>
+                <?php echo esc_html__('Anterior', 'trashify-image-deletion'); ?>
+            </button>
+            <span class="trashify-page-info">
+                <?php echo esc_html__('Página', 'trashify-image-deletion'); ?> <span id="trashify-current-page">1</span>
+                <?php echo esc_html__('de', 'trashify-image-deletion'); ?> <span id="trashify-total-pages">1</span>
+            </span>
+            <button class="button" id="trashify-next-page" disabled>
+                <?php echo esc_html__('Próxima', 'trashify-image-deletion'); ?>
+            </button>
+        </div>
     </div>
 </div> 
