@@ -1,15 +1,17 @@
 <?php
 /**
  * Plugin Name: Trashify - Exclusão de Imagens
- * Plugin URI: https://developers.prollabe.com/trashify
+ * Plugin URI: https://prolldevs.com.br/plugins/trashify
  * Description: Facilita a exclusão de mídias diretamente da biblioteca do WordPress, de forma segura, organizada e seletiva.
  * Version: 1.0.0
  * Author: ProllDevs
- * Author URI: https://developers.prollabe.com
- * Text Domain: trashify-exclusao-de-imagens
+ * Author URI: https://prolldevs.com.br
+ * Text Domain: trashify-image-deletion
  * Domain Path: /languages
+ * Requires at least: 5.0
+ * Requires PHP: 7.2
  * License: GPL v2 or later
- * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
 
 // Prevent direct access

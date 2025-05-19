@@ -4,7 +4,7 @@ msgstr ""
 "POT-Creation-Date: 2024-03-19 12:00+0000\n"
 "PO-Revision-Date: 2024-03-19 12:00+0000\n"
 "Last-Translator: ProllDevs\n"
-"Language-Team: Portuguese (Brazil)\n"
+"Language-Team: ProllDevs\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -16,7 +16,6 @@ msgstr ""
 "_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPathExcluded-0: node_modules\n"
 
 msgid "Trashify - Exclusão de Imagens"
 msgstr "Trashify - Exclusão de Imagens"
@@ -24,41 +23,38 @@ msgstr "Trashify - Exclusão de Imagens"
 msgid "Trashify"
 msgstr "Trashify"
 
+msgid "Você não tem permissão para acessar esta página."
+msgstr "Você não tem permissão para acessar esta página."
+
 msgid "Todos os autores"
 msgstr "Todos os autores"
 
-msgid "Excluir Selecionadas"
-msgstr "Excluir Selecionadas"
+msgid "Excluir Selecionados"
+msgstr "Excluir Selecionados"
 
-msgid "Excluir Todas"
-msgstr "Excluir Todas"
+msgid "Carregando imagens..."
+msgstr "Carregando imagens..."
 
-msgid "Carregando..."
-msgstr "Carregando..."
+msgid "Anterior"
+msgstr "Anterior"
+
+msgid "Próxima"
+msgstr "Próxima"
+
+msgid "Página"
+msgstr "Página"
+
+msgid "de"
+msgstr "de"
 
 msgid "Confirmar Exclusão"
 msgstr "Confirmar Exclusão"
 
-msgid "Sim, Excluir"
-msgstr "Sim, Excluir"
+msgid "Tem certeza que deseja excluir as imagens selecionadas? Esta ação não pode ser desfeita."
+msgstr "Tem certeza que deseja excluir as imagens selecionadas? Esta ação não pode ser desfeita."
 
 msgid "Cancelar"
 msgstr "Cancelar"
 
-msgid "Tem certeza que deseja excluir as imagens selecionadas?"
-msgstr "Tem certeza que deseja excluir as imagens selecionadas?"
-
-msgid "Tem certeza que deseja excluir todas as imagens? Esta ação não pode ser desfeita."
-msgstr "Tem certeza que deseja excluir todas as imagens? Esta ação não pode ser desfeita."
-
-msgid "Ocorreu um erro ao processar sua solicitação."
-msgstr "Ocorreu um erro ao processar sua solicitação."
-
-msgid "Imagens excluídas com sucesso!"
-msgstr "Imagens excluídas com sucesso!"
-
-msgid "Você não tem permissão para acessar esta página."
-msgstr "Você não tem permissão para acessar esta página."
-
-msgid "Você não tem permissão para excluir mídias."
-msgstr "Você não tem permissão para excluir mídias." 
+msgid "Excluir"
+msgstr "Excluir" 

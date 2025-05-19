@@ -4,6 +4,7 @@ Tags: media, images, delete, bulk delete, media library
 Requires at least: 5.0
 Tested up to: 6.8
 Stable tag: 1.0.0
+Requires PHP: 7.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -34,9 +35,9 @@ O Trashify é uma ferramenta poderosa que permite aos administradores e editores
 
 Apenas usuários com permissões de Administrador ou Editor podem acessar e utilizar as funcionalidades do Trashify.
 
-= O plugin suporta outros idiomas além do Português? =
+= O plugin é seguro? =
 
-Sim, o plugin possui suporte para Português e Inglês.
+Sim, todas as operações são protegidas por nonces do WordPress e verificações de permissão são realizadas em todas as operações.
 
 == Screenshots ==
 
@@ -52,4 +53,12 @@ Sim, o plugin possui suporte para Português e Inglês.
 == Upgrade Notice ==
 
 = 1.0.0 =
-Lançamento inicial do plugin 
+Lançamento inicial do plugin
+
+== License ==
+
+This plugin is licensed under the GPL v2 or later.
+
+== Credits ==
+
+Desenvolvido por ProllDevs 
