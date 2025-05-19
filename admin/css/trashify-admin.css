@@ -1,0 +1,170 @@
+.trashify-admin {
+    margin: 20px;
+}
+
+.trashify-filters {
+    margin: 20px 0;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.trashify-filters select {
+    min-width: 200px;
+}
+
+.trashify-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.button-danger {
+    background: #dc3232;
+    border-color: #dc3232;
+    color: #fff;
+}
+
+.button-danger:hover {
+    background: #c92626;
+    border-color: #c92626;
+    color: #fff;
+}
+
+.trashify-grid {
+    position: relative;
+    min-height: 200px;
+}
+
+.trashify-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1;
+}
+
+.trashify-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.trashify-image-item {
+    position: relative;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    background: #fff;
+    transition: all 0.3s ease;
+}
+
+.trashify-image-item:hover {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.trashify-image-checkbox {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    z-index: 2;
+}
+
+.trashify-image-preview {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 2px;
+    margin-bottom: 10px;
+}
+
+.trashify-image-info {
+    font-size: 12px;
+    color: #666;
+}
+
+.trashify-image-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+    word-break: break-word;
+}
+
+.trashify-image-meta {
+    font-size: 11px;
+    color: #999;
+}
+
+.trashify-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.trashify-page-info {
+    font-size: 14px;
+}
+
+.trashify-dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100000;
+}
+
+.trashify-dialog-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 4px;
+    max-width: 400px;
+    width: 90%;
+}
+
+.trashify-dialog h2 {
+    margin-top: 0;
+    color: #d63638;
+}
+
+.trashify-dialog-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 782px) {
+    .trashify-images {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 15px;
+    }
+
+    .trashify-image-preview {
+        height: 120px;
+    }
+
+    .trashify-filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .trashify-filters select {
+        width: 100%;
+    }
+
+    .trashify-buttons {
+        flex-direction: column;
+    }
+
+    .trashify-buttons .button {
+        width: 100%;
+    }
+} 
