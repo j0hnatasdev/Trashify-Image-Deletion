@@ -1,9 +1,9 @@
 === Trashify - Exclusão de Imagens ===
-Contributors: prolldevs
+Contributors: prollabe
 Tags: media, images, delete, bulk delete, media library
 Requires at least: 5.0
 Tested up to: 6.8
-Stable tag: 1.0.0
+Stable tag: 1.0.2
 Requires PHP: 7.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -47,10 +47,26 @@ Sim, todas as operações são protegidas por nonces do WordPress e verificaçõ
 
 == Changelog ==
 
+= 1.0.2 =
+* Adicionado indicador de carregamento durante a exclusão
+* Melhorado o feedback visual durante operações
+* Corrigido problema com URIs duplicados
+
+= 1.0.1 =
+* Corrigido problema com caracteres ASCII
+* Melhorada a compatibilidade com diferentes codificações
+* Atualizada a interface para melhor usabilidade
+
 = 1.0.0 =
 * Lançamento inicial do plugin
 
 == Upgrade Notice ==
+
+= 1.0.2 =
+Melhorias na interface e feedback visual durante operações
+
+= 1.0.1 =
+Correções de compatibilidade e melhorias na interface
 
 = 1.0.0 =
 Lançamento inicial do plugin
@@ -61,4 +77,4 @@ This plugin is licensed under the GPL v2 or later.
 
 == Credits ==
 
-Desenvolvido por ProllDevs 
+Desenvolvido por Prollabe Developers 

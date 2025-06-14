@@ -3,9 +3,9 @@
 }
 
 .trashify-filters {
-    margin: 20px 0;
+    margin-bottom: 20px;
     display: flex;
-    gap: 10px;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -18,96 +18,118 @@
     gap: 10px;
 }
 
-.button-danger {
-    background: #dc3232;
-    border-color: #dc3232;
-    color: #fff;
-}
-
-.button-danger:hover {
-    background: #c92626;
-    border-color: #c92626;
-    color: #fff;
-}
-
 .trashify-grid {
-    position: relative;
-    min-height: 200px;
-}
-
-.trashify-loading {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    z-index: 1;
+    margin-top: 20px;
 }
 
 .trashify-images {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
-    margin: 20px 0;
+    margin-bottom: 20px;
 }
 
 .trashify-image-item {
     position: relative;
     border: 1px solid #ddd;
-    border-radius: 4px;
     padding: 10px;
-    background: #fff;
-    transition: all 0.3s ease;
-}
-
-.trashify-image-item:hover {
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
 }
 
 .trashify-image-checkbox {
     position: absolute;
-    top: 5px;
-    left: 5px;
-    z-index: 2;
+    top: 10px;
+    right: 10px;
+    z-index: 1;
 }
 
 .trashify-image-preview {
     width: 100%;
     height: 150px;
     object-fit: cover;
-    border-radius: 2px;
     margin-bottom: 10px;
 }
 
 .trashify-image-info {
     font-size: 12px;
-    color: #666;
 }
 
 .trashify-image-title {
     font-weight: bold;
     margin-bottom: 5px;
-    word-break: break-word;
 }
 
 .trashify-image-meta {
-    font-size: 11px;
-    color: #999;
+    color: #666;
 }
 
 .trashify-pagination {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15px;
-    margin: 20px 0;
+    gap: 10px;
+    margin-top: 20px;
 }
 
 .trashify-page-info {
-    font-size: 14px;
+    margin: 0 10px;
 }
 
+.trashify-loading {
+    text-align: center;
+    padding: 20px;
+    font-style: italic;
+    color: #666;
+}
+
+/* Diálogo de confirmação */
 .trashify-dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.trashify-dialog-content {
+    background: white;
+    padding: 20px;
+    border-radius: 4px;
+    max-width: 400px;
+    width: 90%;
+}
+
+.trashify-dialog h3 {
+    margin-top: 0;
+}
+
+.trashify-dialog-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Botão de excluir todos */
+.button-danger {
+    background: #dc3545;
+    color: white;
+    border-color: #dc3545;
+}
+
+.button-danger:hover {
+    background: #c82333;
+    border-color: #bd2130;
+    color: white;
+}
+
+/* Indicador de carregamento durante exclusão */
+.trashify-deleting {
     position: fixed;
     top: 0;
     left: 0;
@@ -117,27 +139,43 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 100000;
+    z-index: 10000;
 }
 
-.trashify-dialog-content {
-    background: #fff;
-    padding: 20px;
+.trashify-deleting-content {
+    background: white;
+    padding: 30px;
     border-radius: 4px;
-    max-width: 400px;
+    text-align: center;
+    max-width: 300px;
     width: 90%;
 }
 
-.trashify-dialog h2 {
-    margin-top: 0;
-    color: #d63638;
+.trashify-spinner {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #3498db;
+    border-radius: 50%;
+    animation: trashify-spin 1s linear infinite;
+    margin-bottom: 15px;
 }
 
-.trashify-dialog-buttons {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-top: 20px;
+.trashify-deleting-message {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.trashify-deleting-progress {
+    font-size: 14px;
+    color: #666;
+}
+
+@keyframes trashify-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 /* Responsive adjustments */

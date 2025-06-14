@@ -1,6 +1,6 @@
-# Trashify - Exclusão de Imagens
+# Trashify - Image Deletion
 
-Um plugin WordPress desenvolvido pela ProllDevs para facilitar a exclusão de mídias diretamente da biblioteca do WordPress, de forma segura, organizada e seletiva.
+Um plugin WordPress desenvolvido pela Prollabe Developers para facilitar a exclusão de mídias diretamente da biblioteca do WordPress, de forma segura, organizada e seletiva.
 
 ## Descrição
 
@@ -51,4 +51,4 @@ Este plugin é licenciado sob a GPL v2 ou posterior.
 
 ## Créditos
 
-Desenvolvido por ProllDevs 
+Desenvolvido por Prollabe Developers 

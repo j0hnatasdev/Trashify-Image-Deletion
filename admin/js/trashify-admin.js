@@ -148,14 +148,39 @@ jQuery(document).ready(function($) {
         const $confirmButton = $('#trashify-confirm-delete');
 
         if (type === 'all') {
-            $message.text('Tem certeza que deseja excluir todas as imagens? Esta ação não pode ser desfeita.');
+            $message.text('Tem certeza que deseja excluir todas as imagens? Esta acao nao pode ser desfeita.');
             $confirmButton.data('delete-type', 'all');
         } else {
-            $message.text('Tem certeza que deseja excluir as imagens selecionadas? Esta ação não pode ser desfeita.');
+            $message.text('Tem certeza que deseja excluir as imagens selecionadas? Esta acao nao pode ser desfeita.');
             $confirmButton.data('delete-type', 'selected');
         }
 
         $dialog.show();
+    }
+
+    // Show deleting overlay
+    function showDeletingOverlay(message) {
+        const $overlay = $(`
+            <div class="trashify-deleting">
+                <div class="trashify-deleting-content">
+                    <div class="trashify-spinner"></div>
+                    <div class="trashify-deleting-message">${message}</div>
+                    <div class="trashify-deleting-progress"></div>
+                </div>
+            </div>
+        `);
+        $('body').append($overlay);
+    }
+
+    // Update deleting progress
+    function updateDeletingProgress(current, total) {
+        const percentage = Math.round((current / total) * 100);
+        $('.trashify-deleting-progress').text(`Excluindo... ${current} de ${total} (${percentage}%)`);
+    }
+
+    // Hide deleting overlay
+    function hideDeletingOverlay() {
+        $('.trashify-deleting').remove();
     }
 
     // Update delete button state
@@ -167,32 +192,55 @@ jQuery(document).ready(function($) {
     // Delete selected images
     function deleteSelectedImages() {
         const imageIds = Array.from(selectedImages);
+        const total = imageIds.length;
+        let current = 0;
         
-        $.ajax({
-            url: trashify_ajax.ajax_url,
-            type: 'POST',
-            data: {
-                action: 'trashify_delete_media',
-                nonce: trashify_ajax.nonce,
-                ids: imageIds
-            },
-            success: function(response) {
-                if (response.success) {
-                    selectedImages.clear();
-                    $('#trashify-confirm-dialog').hide();
-                    loadImages();
-                } else {
-                    showError('Erro ao excluir imagens');
-                }
-            },
-            error: function() {
-                showError('Erro ao excluir imagens');
+        $('#trashify-confirm-dialog').hide();
+        showDeletingOverlay('Excluindo imagens selecionadas...');
+        
+        function deleteNext() {
+            if (current >= total) {
+                hideDeletingOverlay();
+                selectedImages.clear();
+                loadImages();
+                return;
             }
-        });
+
+            const imageId = imageIds[current];
+            current++;
+
+            $.ajax({
+                url: trashify_ajax.ajax_url,
+                type: 'POST',
+                data: {
+                    action: 'trashify_delete_media',
+                    nonce: trashify_ajax.nonce,
+                    ids: [imageId]
+                },
+                success: function(response) {
+                    if (response.success) {
+                        updateDeletingProgress(current, total);
+                        deleteNext();
+                    } else {
+                        showError('Erro ao excluir imagem');
+                        hideDeletingOverlay();
+                    }
+                },
+                error: function() {
+                    showError('Erro ao excluir imagem');
+                    hideDeletingOverlay();
+                }
+            });
+        }
+
+        deleteNext();
     }
 
     // Delete all images
     function deleteAllImages() {
+        $('#trashify-confirm-dialog').hide();
+        showDeletingOverlay('Excluindo todas as imagens...');
+        
         $.ajax({
             url: trashify_ajax.ajax_url,
             type: 'POST',
@@ -203,28 +251,36 @@ jQuery(document).ready(function($) {
             },
             success: function(response) {
                 if (response.success) {
+                    hideDeletingOverlay();
                     selectedImages.clear();
-                    $('#trashify-confirm-dialog').hide();
                     loadImages();
                 } else {
                     showError('Erro ao excluir imagens');
+                    hideDeletingOverlay();
                 }
             },
             error: function() {
                 showError('Erro ao excluir imagens');
+                hideDeletingOverlay();
             }
         });
     }
 
     // Show error message
     function showError(message) {
-        const $error = $(`<div class="notice notice-error"><p>${message}</p></div>`);
+        const $error = $(`
+            <div class="notice notice-error is-dismissible">
+                <p>${message}</p>
+            </div>
+        `);
         $('.trashify-admin').prepend($error);
+        
+        // Auto-dismiss after 5 seconds
         setTimeout(function() {
             $error.fadeOut(function() {
                 $(this).remove();
             });
-        }, 3000);
+        }, 5000);
     }
 
     // Initialize the plugin

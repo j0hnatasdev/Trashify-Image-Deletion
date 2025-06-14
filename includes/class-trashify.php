@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 class Trashify {
     protected $loader;
@@ -14,8 +15,19 @@ class Trashify {
     }
 
     private function load_dependencies() {
-        require_once TRASHIFY_PLUGIN_DIR . 'includes/class-trashify-loader.php';
-        require_once TRASHIFY_PLUGIN_DIR . 'admin/class-trashify-admin.php';
+        $loader_file = TRASHIFY_PLUGIN_DIR . 'includes/class-trashify-loader.php';
+        $admin_file = TRASHIFY_PLUGIN_DIR . 'admin/class-trashify-admin.php';
+
+        if (!file_exists($loader_file)) {
+            wp_die(esc_html__('Erro: Arquivo de loader não encontrado.', 'trashify-image-deletion'));
+        }
+
+        if (!file_exists($admin_file)) {
+            wp_die(esc_html__('Erro: Arquivo de admin não encontrado.', 'trashify-image-deletion'));
+        }
+
+        require_once $loader_file;
+        require_once $admin_file;
         
         $this->loader = new Trashify_Loader();
     }

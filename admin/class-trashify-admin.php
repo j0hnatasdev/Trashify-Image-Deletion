@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 class Trashify_Admin {
     private $plugin_name;
@@ -10,29 +11,35 @@ class Trashify_Admin {
     }
 
     public function enqueue_styles() {
-        wp_enqueue_style(
-            $this->plugin_name,
-            TRASHIFY_PLUGIN_URL . 'admin/css/trashify-admin.css',
-            array(),
-            $this->version,
-            'all'
-        );
+        $css_file = TRASHIFY_PLUGIN_DIR . 'admin/css/trashify-admin.css';
+        if (file_exists($css_file)) {
+            wp_enqueue_style(
+                $this->plugin_name,
+                TRASHIFY_PLUGIN_URL . 'admin/css/trashify-admin.css',
+                array(),
+                $this->version,
+                'all'
+            );
+        }
     }
 
     public function enqueue_scripts() {
-        wp_enqueue_script(
-            $this->plugin_name,
-            TRASHIFY_PLUGIN_URL . 'admin/js/trashify-admin.js',
-            array('jquery'),
-            $this->version,
-            false
-        );
+        $js_file = TRASHIFY_PLUGIN_DIR . 'admin/js/trashify-admin.js';
+        if (file_exists($js_file)) {
+            wp_enqueue_script(
+                $this->plugin_name,
+                TRASHIFY_PLUGIN_URL . 'admin/js/trashify-admin.js',
+                array('jquery'),
+                $this->version,
+                false
+            );
 
-        wp_localize_script($this->plugin_name, 'trashify_ajax', array(
-            'ajax_url' => admin_url('admin-ajax.php'),
-            'nonce' => wp_create_nonce('trashify_nonce'),
-            'confirm_delete' => esc_html__('Tem certeza que deseja excluir as imagens selecionadas?', 'trashify-image-deletion')
-        ));
+            wp_localize_script($this->plugin_name, 'trashify_ajax', array(
+                'ajax_url' => admin_url('admin-ajax.php'),
+                'nonce' => wp_create_nonce('trashify_nonce'),
+                'confirm_delete' => esc_html__('Tem certeza que deseja excluir as imagens selecionadas?', 'trashify-image-deletion')
+            ));
+        }
     }
 
     public function add_plugin_admin_menu() {
@@ -52,7 +59,12 @@ class Trashify_Admin {
             wp_die(esc_html__('Você não tem permissão para acessar esta página.', 'trashify-image-deletion'));
         }
 
-        include_once TRASHIFY_PLUGIN_DIR . 'admin/partials/trashify-admin-display.php';
+        $template_file = TRASHIFY_PLUGIN_DIR . 'admin/partials/trashify-admin-display.php';
+        if (file_exists($template_file)) {
+            include_once $template_file;
+        } else {
+            wp_die(esc_html__('Erro: Template não encontrado.', 'trashify-image-deletion'));
+        }
     }
 
     public function ajax_get_media() {
